@@ -18,13 +18,17 @@ const Listpage = () => {
     );
   };
 
+  const deleteTask = (id) => {
+    setTask(task.filter((t) => t.id !== id));
+  };
+
   return (
-    <div className="max-w-xl mx-auto mt-20 p-6 bg-gray-200 shadow-lg rounded-xl">
+    <div className="max-w-xl mx-auto mt-10 p-6 bg-gray-200 shadow-lg rounded-xl">
       <h1 className="text-2xl font-bold text-center mb-6 text-gray-800">
         Task Manager
       </h1>
       <TaskForm addTask={addTask} />
-      <TaskList tasks={task} toggleTask={toggleTask} />
+      <TaskList tasks={task} toggleTask={toggleTask} deleteTask={deleteTask} />
       <p className="mt-4 text-center text-gray-600">
         Total Tasks: {task.length}
       </p>
